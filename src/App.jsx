@@ -2,10 +2,14 @@ import { useState, useEffect } from 'react'
 import './App.css'
 import Grid from './components/Grid'
 import Crosshair from './components/Crosshair'
+import Calibration from './components/Calibration'
 import useEyeTracking from './hooks/useEyeTracking'
 
+
 function App() {
-  const gazePoint = useEyeTracking();
+  const [isCalibrated, setIsCalibrated] = useState(false);
+  // Show video only during calibration (start)
+  const gazePoint = useEyeTracking(!isCalibrated);
 
   return (
     <div className="app-container">
@@ -14,11 +18,15 @@ function App() {
       <div style={{ position: 'absolute', top: 10, left: 10, color: 'white', zIndex: 100, pointerEvents: 'none' }}>
         x: {Math.round(gazePoint.x)}, y: {Math.round(gazePoint.y)}
       </div>
-      {/* <div className="instructions">
-        Click on the grid squares to calibrate eye tracking. Look at the cursor.
-      </div> */}
-      <Crosshair x={gazePoint.x} y={gazePoint.y} />
-      <Grid gazePoint={gazePoint} />
+
+      {!isCalibrated ? (
+        <Calibration onCalibrationComplete={() => setIsCalibrated(true)} />
+      ) : (
+        <>
+          <Crosshair x={gazePoint.x} y={gazePoint.y} />
+          <Grid gazePoint={gazePoint} />
+        </>
+      )}
     </div>
   )
 }
