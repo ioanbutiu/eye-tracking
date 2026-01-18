@@ -1,0 +1,62 @@
+.grid-container {
+    display: flex;
+    flex-direction: row;
+    width: 100vw;
+    height: 100vh;
+    gap: 0;
+    background-color: #333;
+    padding: 0;
+    border-radius: 0;
+    overflow: hidden;
+}
+
+.grid-item {
+    flex: 1;
+    background-color: black;
+    /* Black background for video */
+    border-radius: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 3rem;
+    color: #888;
+    transition: flex 4s ease;
+    /* Slow transition */
+    position: relative;
+    overflow: hidden;
+    border-right: 4px solid black;
+}
+
+/* Remove border from the last item */
+.grid-item:last-child {
+    border-right: none;
+}
+
+.grid-item.active {
+    flex: 3;
+    /* Expands to take up more space */
+    z-index: 10;
+}
+
+.video-wrapper {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    background-color: black;
+    /* Let clicks pass through to grid item if needed, but elementFromPoint usually hits top element */
+}
+
+/* We need pointer events on something to detect gaze */
+/* elementFromPoint will hit the video wrapper or the overlay */
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: transparent;
+    /* background: rgba(0,0,0,0.2); Optional dimming */
+}
