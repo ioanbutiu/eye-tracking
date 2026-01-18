@@ -14,7 +14,7 @@ const useEyeTracking = () => {
             }).begin();
 
             // Basic configuration
-            webgazer.showVideoPreview(true) /* shows the video */
+            webgazer.showVideoPreview(false) /* shows the video */
                 .showPredictionPoints(true) /* shows the red dot */
                 .applyKalmanFilter(true); /* smooths the gaze */
         }

@@ -9,7 +9,7 @@ const Grid = ({ gazePoint }) => {
     const columns = [
         { id: 0, startTime: 30, label: "0:30", url: "https://www.youtube.com/watch?v=nKWmgsIuXOc" },
         { id: 1, startTime: 120, label: "2:00", url: "https://www.youtube.com/watch?v=VUJbDTIYlM4" },
-        { id: 2, startTime: 180, label: "3:00", url: "https://www.youtube.com/watch?v=7hKbyXxWT2k" }
+        { id: 2, startTime: 180, label: "3:00", url: "https://www.youtube.com/watch?v=9viZIxuonrI" }
     ];
 
     useEffect(() => {
