@@ -9,7 +9,7 @@ import useEyeTracking from './hooks/useEyeTracking'
 function App() {
   const [isCalibrated, setIsCalibrated] = useState(false);
   // Show video only during calibration (start)
-  const gazePoint = useEyeTracking(!isCalibrated);
+  const gazePoint = useEyeTracking();
 
   return (
     <div className="app-container">

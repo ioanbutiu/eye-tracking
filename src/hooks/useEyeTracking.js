@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 
-const useEyeTracking = (showVideo = false) => {
+const useEyeTracking = () => {
     const [gazePoint, setGazePoint] = useState({ x: 0, y: 0 });
 
     useEffect(() => {
@@ -14,7 +14,7 @@ const useEyeTracking = (showVideo = false) => {
             }).begin();
 
             // Basic configuration
-            webgazer.showVideoPreview(showVideo) /* shows the video */
+            webgazer.showVideoPreview(false) /* shows the video */
                 .showPredictionPoints(true) /* shows the red dot */
                 .applyKalmanFilter(true); /* smooths the gaze */
         }
