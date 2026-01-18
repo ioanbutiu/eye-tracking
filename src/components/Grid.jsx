@@ -45,10 +45,16 @@ const Grid = ({ gazePoint }) => {
                             loop
                             muted
                             playsinline
-                            width="100%"
-                            height="100%"
+                            width="200vh"
+                            height="120vh"
                             controls={false}
-                            style={{ position: 'absolute', top: 0, left: 0, pointerEvents: 'none', objectFit: 'cover' }}
+                            style={{
+                                position: 'absolute',
+                                top: '50%',
+                                left: '50%',
+                                transform: 'translate(-50%, -50%)',
+                                pointerEvents: 'none'
+                            }}
                             onReady={(player) => player.seekTo(col.startTime)}
                             config={{
                                 youtube: {
@@ -60,6 +66,7 @@ const Grid = ({ gazePoint }) => {
                                         autoplay: 1,
                                         loop: 1,
                                         mute: 1,
+                                        modestbranding: 1,
                                     }
                                 }
                             }}
